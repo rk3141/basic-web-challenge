@@ -18,6 +18,7 @@ export async function POST(request: Request) {
   }
 
   if (await bcrypt.compare(username+salt+password, '$2b$12$Ga1UIWfKFSjYKB0kmJK88eEj8V/rbDHlGCIGfIq3S3uZdYoqkchFe')) {
+    // That hash is bcrypt.hashSync("admin"+salt+"<redacted password>")
     return NextResponse.json({
       message: `the flag is ${FLAG}`
     })
